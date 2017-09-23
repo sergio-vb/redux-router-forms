@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from '../actions';
+import { FETCH_POSTS, ADD_POST } from '../actions';
 
 export default function(state = {}, action){
     switch(action.type){
@@ -7,7 +7,9 @@ export default function(state = {}, action){
                 posts[post.id] = post;
                 return posts;
             },{});
+            console.log(posts);
             return posts;
+        case ADD_POST:
             
     }
     return state;
