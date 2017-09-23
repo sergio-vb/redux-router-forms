@@ -28,7 +28,9 @@ class PostsNew extends React.Component{
     }
 
     onSubmit(values){
-        this.props.addPost(values);
+        this.props.addPost(values, () => {
+            this.props.history.push('/')
+        });
     }
 
     render(){
@@ -75,9 +77,9 @@ function validate(values) { //Called automatically at various moments, like when
     return errors;
 }
 
-const PostsNewWithForm = reduxForm({
-    validate,
-    form: 'PostsNewForm' //Define the 'name' of the form, to identify it
-})(PostsNew);
-
-export default connect(null, {addPost})(PostsNewWithForm);
+export default connect(null, {addPost})(
+    reduxForm({
+        validate,
+        form: 'PostsNewForm' //Defines the 'name' of the form, to identify it
+    })(PostsNew)
+);

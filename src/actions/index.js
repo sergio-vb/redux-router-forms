@@ -19,10 +19,13 @@ export function fetchPosts(){
     }
 }
 
-export function addPost(values){
-    //Call back end api to add post
+export function addPost(values, callback){
+    
+    const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
+        .then(callback);
+
     return {
         type: ADD_POST,
-        payload: values
+        payload: request
     }
 }
