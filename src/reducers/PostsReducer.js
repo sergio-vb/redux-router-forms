@@ -12,17 +12,7 @@ export default function(state = {}, action){
             },{});
             console.log(posts);
             return posts;
-        
-        case ADD_POST:
-            // console.log("Previous state: ", state);
-            // const { data } = action.payload;
-            
-            // posts = Object.assign({}, state);
-            // posts[data.id] = data;
-            
-            // console.log("New posts: ", posts);
-            // action.callback();
-            return posts;
+        default:
+            return state;
     }
-    return state;
 }
