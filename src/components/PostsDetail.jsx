@@ -10,7 +10,7 @@ class PostsDetail extends React.Component{
         this.props.fetchPost(postId);
     }
     render(){
-        console.log("Props: ", this.props);
+        //console.log("Props: ", this.props);
         const { post } = this.props;
             
         return (

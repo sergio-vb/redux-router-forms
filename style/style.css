@@ -2,3 +2,12 @@
 form a.btn{
     margin-left: 0.7em;
 }
+
+
+/* PostsIndex Component*/
+.PostsIndex .list-group-item{
+    cursor: pointer;
+}
+.PostsIndex .list-group-item:hover{
+    background: #ccc;
+}    

@@ -9,11 +9,15 @@ class PostsIndex extends React.Component{
     componentDidMount(){
         this.props.fetchPosts();
     }
+    onSelectPost(id){
+        this.props.history.push(`/posts/${id}`);
+    }
     renderPosts(){
         return _.map(this.props.posts, post => (
             <li 
                 className="list-group-item"
                 key={post.id}
+                onClick={ (event) => this.onSelectPost(post.id)}
             >
                 {post.title}
             </li>
@@ -21,7 +25,7 @@ class PostsIndex extends React.Component{
     }
     render(){
         return (
-            <div>
+            <div className="PostsIndex">
                 <div className="text-xs-right">
                     <Link 
                         className="btn btn-primary"
