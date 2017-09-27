@@ -26,6 +26,13 @@ class PostsDetail extends React.Component{
     }
     render(){
         const { post } = this.props;
+
+        //Not needed in the current implementation, since redux will
+        //always initialize the activePost piece of state with an empty
+        //object. Added for future-proofing.
+        if (!post){
+            return <div>Loading...</div>
+        }
             
         return (
             <div>
@@ -45,4 +52,8 @@ class PostsDetail extends React.Component{
 function mapStateToProps(state){
     return {post: state.activePost};
 }
+/* Alternative, if state.posts already includes the active post
+function mapStateToProps({posts}, ownProps){
+    return {post: posts[ownProps.match.params.id]};
+}*/
 export default connect(mapStateToProps, {fetchPost, deletePost, cleanActivePost})(PostsDetail);

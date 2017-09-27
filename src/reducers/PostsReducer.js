@@ -16,3 +16,10 @@ export default function(state = {}, action){
             return state;
     }
 }
+
+/*Alternative way to add a single post to the state:
+    case FETCH_POST:
+        const post = action.payload.data;
+        return { ...state, [post.id]: post};
+
+*/
