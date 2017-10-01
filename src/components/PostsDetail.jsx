@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchPost, deletePost, cleanActivePost } from '../actions';
 import { connect } from 'react-redux';
+
+import { fetchPost, deletePost, cleanActivePost } from '../actions';
 
 class PostsDetail extends React.Component{
 
@@ -21,7 +22,6 @@ class PostsDetail extends React.Component{
         });
     }
     onGoBack(){
-        console.log("Go Back clicked");
         this.props.cleanActivePost();
     }
     render(){
@@ -38,7 +38,7 @@ class PostsDetail extends React.Component{
             <div>
                 <Link to="/posts/" onClick={this.onGoBack}>&#60; Back to Posts</Link>
 
-                <button className="btn btn-primary" onClick={this.onDeletePost}>Delete Post</button>
+                <button className="btn btn-danger pull-xs-right" onClick={this.onDeletePost}>Delete Post</button>
                 <div className="post-content">
                     <h2>{post.title}</h2>
                     <h5>Categories: {post.categories} </h5>

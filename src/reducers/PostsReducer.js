@@ -1,4 +1,6 @@
-import { FETCH_POSTS, ADD_POST } from '../actions';
+import _ from 'lodash';
+
+import { FETCH_POSTS, ADD_POST, DELETE_POST } from '../actions';
 
 export default function(state = {}, action){
     let posts;
@@ -12,6 +14,8 @@ export default function(state = {}, action){
             },{});
             console.log(posts);
             return posts;
+        case DELETE_POST:
+            return _.omit(state, action.payload);
         default:
             return state;
     }
